@@ -4,7 +4,7 @@ session_start();
 if (!$_SESSION['login']) {
 	header("location: login.php");
 }
-$query = mysqli_query($koneksi,"SELECT * FROM barang JOIN barang ON barang.id_supplier = supplier.id_supplier");
+$query = mysqli_query($koneksi,"SELECT * FROM barang JOIN supplier ON barang.id_supplier = supplier.id_supplier");
 if (isset($_POST['submit'])) {
 	$cari = $_POST['cari'];
 	$query = mysqli_query($koneksi,"SELECT * FROM barang WHERE nama_barang = '$cari'");
